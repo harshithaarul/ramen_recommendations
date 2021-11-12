@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+body {
+    background-color: black;
+}
+
+.label {
+    color: wheat;
+    font-family: "Open Sans";
+}
+
+.title {
+    font-family: "Open Sans";
+}
+
+.input {
+    background-color: black;
+    color: whitesmoke;
+    border-color: wheat;
+}
+
+.radio:hover {
+    color: burlywood;
+}
+
+.input:focus {
+    border-color: wheat;
+}

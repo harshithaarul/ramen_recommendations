@@ -1,0 +1,146 @@
+<html>
+
+<head>
+    <title> Ramen Recommendation System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section class="hero is-fullheight has-text-white ">
+        <div class="hero-body">
+            <section id="survey">
+
+                <br>
+                <div class="columns is-multiline is-mobile">
+                    <div class="column is-one-quarter">
+                        <figure class="image is-128x128">
+                            <img src="https://cdni.iconscout.com/illustration/premium/thumb/ramen-3630901-3058126.png">
+                        </figure>
+                    </div>
+                    <div class="column is-one-half">
+                        <br><br>
+                        <h1 class="title is-3 has-text-white">Come find your new favorite ramen!</h1>
+                    </div>
+                </div>
+                <br>
+
+                <!-- Name -->
+                <div class="field ">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Text input" id="name">
+                    </div>
+                </div>
+                <br>
+
+                <!-- Text input -->
+                <div class="field ">
+                    <label class="label ">If you prefer to enter one of your favorite ramen instead of going through the list, type it below and hit submit</label>
+                    <div class="control ">
+                        <input class="input" type="text" placeholder="Text input" id="favRamen">
+                    </div>
+                </div>
+                <br>
+
+                <!-- Spicy Ramen -->
+                <div class="field">
+                    <label class="label">Do you like spicy ramen?</label>
+                    <div class="control" id="spicy">
+                        <label class="radio"><input type="radio" name="spicy" value="Yes"> Yes </label>
+                        <label class="radio"><input type="radio" name="spicy" value="No"> No</label>
+                        <label class="radio"><input type="radio" name="spicy" value="NoPref"> No Preference</label>
+                    </div>
+                </div>
+                <br>
+
+                <!-- Style -->
+                <div class="field">
+                    <label class="label">What style do you prefer?</label>
+                    <div class="control" id="style">
+                        <label class="radio"><input type="radio" name="style" value="Cup"> Cup</label>
+                        <label class="radio"><input type="radio" name="style" value="Box"> Box/Tray</label>
+                        <label class="radio"><input type="radio" name="style" value="Bowl"> Bowl</label>
+                        <label class="radio"><input type="radio" name="style"value = "Pack"> Pack</label>
+                        <label class="radio"><input type="radio" name="style" value="NoPref"> No Preference</label>
+                    </div>
+                </div>
+                <br>
+
+                <!-- Protein -->
+                <div class="field">
+                    <label class="label">What protein do you like in your ramen?</label>
+                    <div class="control" id="proteinRadios">
+                        <label class="radio"><input type="radio" name="protein" value="Beef"> Beef</label>
+                        <label class="radio"><input type="radio" name="protein" value="Chicken" > Chicken</label>
+                        <label class="radio"><input type="radio" name="protein" value="Pork"> Pork</label>
+                        <label class="radio"><input type="radio" name="protein" value="Veggie"> Veggie</label>
+                        <label class="radio"><input type="radio" name="protein" value="NoPref"> No Preference</label>
+                    </div>
+                </div>
+                <br>
+
+                <!-- Country -->
+                <div class="field ">
+                    <label class="label ">Would you want recommendations from a certain country? If so, which one? Be warned that some countries have very few options.</label>
+                    <div class="control ">
+                        <div class="select ">
+                            <select id="country">
+                                <option>No Preference</option>
+                                <option>Australia</option>
+                                <option>Bangladesh</option>
+                                <option>Brazil</option>
+                                <option>Bangladesh</option>
+                                <option>Cambodia</option>
+                                <option>Canada</option>
+                                <option>Colombia</option>
+                                <option>Dubai</option>
+                                <option>Estonia</option>
+                                <option>Fiji</option>
+                                <option>Finland</option>
+                                <option>Germany</option>
+                                <option>Ghana</option>
+                                <option>Holland</option>
+                                <option>Hong Kong</option>
+                                <option>Hungary</option>
+                                <option>India</option>
+                                <option>Indonesia</option>
+                                <option>Malaysia</option>
+                                <option>Mexico</option>
+                                <option>Myanmar</option>
+                                <option>Nepal</option>
+                                <option>Netherlands</option>
+                                <option>Pakistan</option>
+                                <option>Philippines</option>
+                                <option>Poland</option>
+                                <option>Sarawak</option>
+                                <option>Singapore</option>
+                                <option>South Korea</option>
+                                <option>Taiwan</option>
+                                <option>Thailand</option>
+                                <option>United Kingdom</option>
+                                <option>United States</option>
+                                <option>Vietnam</option>                  
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <!-- Submit and Cancel -->
+                <div class="field is-grouped ">
+                    <div class="control">
+                        <button class="button is-success is-outlined" id="submit" onclick="submit()">Submit</button>
+                    </div>
+                    <div class="control ">
+                        <button class="button is-danger is-outlined" id="cancel" onclick="cancel()">Cancel</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</body>
+<script src="index.js"></script>
+
+</html>
