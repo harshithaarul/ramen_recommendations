@@ -1,6 +1,6 @@
 from recommendation.recommendation_system import RecSystem
 
-preferences = ["bowl", "spicy", "nissin"]
+preferences = ["Nissin", "Cup Noodles Chicken Vegetable", "Cup", "USA"]
 
 
 def print_hi(name):
@@ -9,8 +9,7 @@ def print_hi(name):
 
 def get_recommendations(p):
     rec_sys = RecSystem()
-    rec_sys.set_preferences(p)
-    rec_sys.process()
+    rec_sys.process(p)
 
     recommendations = rec_sys.get_recommendations()
     return recommendations
