@@ -7,8 +7,8 @@ class RecSystem:
     the algorithms.
 
     Attributes:
-        preferences: user input preferences
-        recommendations: system output n common recommendations
+        _recommendations: system output n common recommendations (n = 10)
+        _k_means: recommendation using k_means
     """
 
     def __init__(self):
