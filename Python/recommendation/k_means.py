@@ -11,6 +11,8 @@ class KMeansRecSys:
     K-means Clustering preprocessing and implementation
 
     Attributes:
+        CONST_PATH: path to resources directory
+        _recommendation_cluster: the recommended cluster
         _features: all features including cluster ID ("label12")
     """
 
