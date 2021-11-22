@@ -1,6 +1,6 @@
 from recommendation.recommendation_system import RecSystem
 
-preferences = ["Nissin", "Cup Noodles Chicken Vegetable", "Cup", "USA"]
+preferences = ["Nissin", "Cup Noodles Chicken Vegetable", "Cup", "USA", "2.25"]
 
 
 def print_hi(name):
