@@ -16,10 +16,11 @@ class KMeansRecSys:
 
     def __init__(self):
         self.CONST_PATH = os.getcwd() + "/resources/"
+        self._recommendation_cluster = -1
         self._features = pd.read_csv(self.CONST_PATH + "ramen-ratings.csv")
         self._features = self._features.iloc[:, 1:-2]
 
-    def preprocess(self):
+    def preprocess(self, preference):
         train_data = pd.read_csv(self.CONST_PATH + "ramen-ratings.csv")
         train_data = train_data.iloc[:, 1:-1]
 
@@ -50,42 +51,25 @@ class KMeansRecSys:
 
         self._features["label2"] = kmeans_v.labels_
 
-        mock_v = "cup noodl chick veget nissin cup us"
-        dict = {"Brand": "Nissin",
-                "Variety": "Cup Noodles Chicken Vegetable",
-                "Style": "Cup",
-                "Country": "USA",
-                "Stars": "2.25"
+        # Composing and predicting cluster
+        dict = {"Brand": preference[0],
+                "Variety": preference[1],
+                "Style": preference[2],
+                "Country": preference[3],
+                "Stars": preference[4]
                 }
         preference_data = pd.DataFrame(dict, [0])
 
-        preference_data["Variety"] = preference_data["Variety"] + " " + preference_data["Brand"] + " " + preference_data["Style"] + " " + \
-                                preference_data["Country"]
+        preference_data["Variety"] = preference_data["Variety"] + " " + preference_data["Brand"] + " " + \
+                                     preference_data["Style"] + " " + \
+                                     preference_data["Country"]
         preference_data["Variety"] = preference_data["Variety"].astype(str)
 
         preference_data["Variety"] = preference_data["Variety"].apply(processing)
         preference_vector = vectorized.transform(preference_data["Variety"])
 
-        one = train_vector[2]
-        print(kmeans_v.predict(preference_vector))
+        self._recommendation_cluster = kmeans_v.predict(preference_vector)[0]
 
-    # def recommend_util(str_input):
-    #     # match on the basis course-id and form whole 'Description' entry out of it.
-    #     temp_df = course_df.loc[course_df['CourseId'] == str_input]
-    #     temp_df['InputString'] = temp_df.CourseId.str.cat(
-    #         " " + temp_df.CourseTitle.str.cat(" " + temp_df['Description']))
-    #     str_input = list(temp_df['InputString'])
-    #
-    #     # Predict category of input string category
-    #     prediction_inp = cluster_predict(str_input)
-    #     prediction_inp = int(prediction_inp)
-    #     # Based on the above prediction 10 random courses are recommended from the whole data-frame
-    #     # Recommendation Logic is kept super-simple for current implementation.
-    #     temp_df = course_df.loc[course_df['ClusterPrediction'] == prediction_inp]
-    #     temp_df = temp_df.sample(10)
-    #
-    #     return list(temp_df['CourseId'])
-
-    def predict(self, preference):
-
-        return self._features["label2"]
+    def predict(self):
+        recommendation = self._features.loc[self._features["label2"] == self._recommendation_cluster]
+        return recommendation.sample(10)

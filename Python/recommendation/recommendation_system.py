@@ -14,10 +14,10 @@ class RecSystem:
     def __init__(self):
         self._recommendations = []
         self._k_means = KMeansRecSys()
-        self._k_means.preprocess()
 
     def get_recommendations(self):
         return self._recommendations
 
     def process(self, preference):
-        self._recommendations = self._k_means.predict(preference)
+        self._k_means.preprocess(preference)
+        self._recommendations = self._k_means.predict()
