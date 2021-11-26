@@ -1,4 +1,4 @@
-from Python.recommendation.k_means import KMeansRecSys
+from recommendation.k_means import KMeansRecSys
 
 
 class RecSystem:
