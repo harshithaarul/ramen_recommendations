@@ -1,5 +1,7 @@
 from Python.recommendation.k_means import KMeansRecSys
 from Python.recommendation.gmm import GMMRecSys
+import numpy as np
+import pandas as pd
 
 
 class RecSystem:
@@ -23,4 +25,13 @@ class RecSystem:
     def process(self, preference):
         self._k_means.preprocess(preference)
         self._gmm.preprocess(preference)
-        self._recommendations = self._gmm.predict()
+
+        k_means_rec = self._k_means.predict()
+        gmm_rec = self._gmm.predict()
+
+        intersection = np.intersect1d(k_means_rec.index, gmm_rec.index)
+        if len(intersection) > 10:
+            intersection = intersection[:10]
+
+        for i in intersection:
+            self._recommendations.append(k_means_rec[k_means_rec.index == i].values.tolist()[0])

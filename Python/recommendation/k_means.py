@@ -51,7 +51,7 @@ class KMeansRecSys:
 
         kmeans_v = KMeans(n_clusters=10, random_state=0).fit(train_vector)
 
-        self._features["label2"] = kmeans_v.labels_
+        self._features["kmeans"] = kmeans_v.labels_
 
         # Composing and predicting cluster
         dict = {"Brand": preference[0],
@@ -73,5 +73,5 @@ class KMeansRecSys:
         self._recommendation_cluster = kmeans_v.predict(preference_vector)[0]
 
     def predict(self):
-        recommendation = self._features.loc[self._features["label2"] == self._recommendation_cluster]
-        return recommendation.sample(10)
+        recommendation = self._features.loc[self._features["kmeans"] == self._recommendation_cluster]
+        return recommendation

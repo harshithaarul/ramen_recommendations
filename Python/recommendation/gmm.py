@@ -52,7 +52,6 @@ class GMMRecSys:
         gaussian_m = GaussianMixture(n_components=10, random_state=0, init_params='random').fit(train_vector.toarray())
         gaussian_v = gaussian_m.predict(train_vector.toarray())
 
-        print(gaussian_v)
         self._features["gaussian"] = gaussian_v
 
         # Composing and predicting cluster
@@ -76,4 +75,4 @@ class GMMRecSys:
 
     def predict(self):
         recommendation = self._features.loc[self._features["gaussian"] == self._recommendation_cluster]
-        return recommendation.sample(10)
+        return recommendation
