@@ -31,4 +31,4 @@ def get_recommendations(p):
 async def getRec(inputs: List[str]):
     print(inputs)
     recs = get_recommendations(inputs)
-    return list(zip(recs['Brand'], recs['Variety'], recs['Style'], recs['Country']))
+    return recs
