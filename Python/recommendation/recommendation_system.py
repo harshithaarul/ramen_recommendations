@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 
 
+
 class RecSystem:
     """
     RecSystem is a collection of hashing / clustering algorithms and computes recommended results based on
@@ -18,6 +19,7 @@ class RecSystem:
         self._recommendations = []
         self._k_means = KMeansRecSys()
         self._gmm = GMMRecSys()
+
 
     def get_recommendations(self):
         return self._recommendations
