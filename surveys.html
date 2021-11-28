@@ -28,29 +28,18 @@
 
                 <!-- Name -->
                 <div class="field ">
-                    <label class="label">Name</label>
+                    <label class="label">Brand</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Text input" id="name">
+                        <input class="input" type="text" placeholder="Brand" id="brand">
                     </div>
                 </div>
                 <br>
 
                 <!-- Text input -->
                 <div class="field ">
-                    <label class="label ">If you prefer to enter one of your favorite ramen instead of going through the list, type it below and hit submit</label>
+                    <label class="label ">Variety</label>
                     <div class="control ">
-                        <input class="input" type="text" placeholder="Text input" id="favRamen">
-                    </div>
-                </div>
-                <br>
-
-                <!-- Spicy Ramen -->
-                <div class="field">
-                    <label class="label">Do you like spicy ramen?</label>
-                    <div class="control" id="spicy">
-                        <label class="radio"><input type="radio" name="spicy" value="Yes"> Yes </label>
-                        <label class="radio"><input type="radio" name="spicy" value="No"> No</label>
-                        <label class="radio"><input type="radio" name="spicy" value="NoPref"> No Preference</label>
+                        <input class="input" type="text" placeholder="Variety" id="variety">
                     </div>
                 </div>
                 <br>
@@ -64,19 +53,6 @@
                         <label class="radio"><input type="radio" name="style" value="Bowl"> Bowl</label>
                         <label class="radio"><input type="radio" name="style"value = "Pack"> Pack</label>
                         <label class="radio"><input type="radio" name="style" value="NoPref"> No Preference</label>
-                    </div>
-                </div>
-                <br>
-
-                <!-- Protein -->
-                <div class="field">
-                    <label class="label">What protein do you like in your ramen?</label>
-                    <div class="control" id="proteinRadios">
-                        <label class="radio"><input type="radio" name="protein" value="Beef"> Beef</label>
-                        <label class="radio"><input type="radio" name="protein" value="Chicken" > Chicken</label>
-                        <label class="radio"><input type="radio" name="protein" value="Pork"> Pork</label>
-                        <label class="radio"><input type="radio" name="protein" value="Veggie"> Veggie</label>
-                        <label class="radio"><input type="radio" name="protein" value="NoPref"> No Preference</label>
                     </div>
                 </div>
                 <br>
@@ -128,6 +104,23 @@
                 </div>
                 <br>
 
+                <div class="field ">
+                    <label class="label ">How many stars would you want your ramen to be rated?</label>
+                    <div class="control ">
+                        <div class="select ">
+                            <select id="stars">
+                                <option>0</option>
+                                <option>1</option>    
+                                <option>2</option>    
+                                <option>3</option>    
+                                <option>4</option>
+                                <option>5</option>                   
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
                 <!-- Submit and Cancel -->
                 <div class="field is-grouped ">
                     <div class="control">
@@ -136,6 +129,8 @@
                     <div class="control ">
                         <button class="button is-danger is-outlined" id="cancel" onclick="cancel()">Cancel</button>
                     </div>
+                </div>
+                <div id="results">
                 </div>
             </section>
         </div>
