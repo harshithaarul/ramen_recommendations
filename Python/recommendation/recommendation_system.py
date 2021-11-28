@@ -1,4 +1,5 @@
 from Python.recommendation.k_means import KMeansRecSys
+from Python.recommendation.gmm import GMMRecSys
 
 
 class RecSystem:
@@ -14,10 +15,12 @@ class RecSystem:
     def __init__(self):
         self._recommendations = []
         self._k_means = KMeansRecSys()
+        self._gmm = GMMRecSys()
 
     def get_recommendations(self):
         return self._recommendations
 
     def process(self, preference):
         self._k_means.preprocess(preference)
-        self._recommendations = self._k_means.predict()
+        self._gmm.preprocess(preference)
+        self._recommendations = self._gmm.predict()
