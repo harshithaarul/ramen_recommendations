@@ -4,6 +4,7 @@ import pandas as pd
 from nltk.stem.lancaster import LancasterStemmer
 from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import CountVectorizer
+from scipy.spatial import distance
 
 
 class KMeansRecSys:
@@ -52,6 +53,20 @@ class KMeansRecSys:
         kmeans_v = KMeans(n_clusters=10, random_state=0).fit(train_vector)
 
         self._features["kmeans"] = kmeans_v.labels_
+
+        train_df = pd.DataFrame(train_vector.toarray())
+        features = train_df.values.tolist()
+
+        centers = kmeans_v.cluster_centers_.tolist()
+        center_distances = []
+
+        labels_list = kmeans_v.labels_.tolist()
+
+        for i in range(len(labels_list)):
+            label = labels_list[i]
+            center_distances.append(distance.euclidean(features[i], centers[label]))
+
+        self._features["distance"] = center_distances
 
         # Composing and predicting cluster
         dict = {"Brand": preference[0],

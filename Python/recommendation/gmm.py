@@ -54,6 +54,20 @@ class GMMRecSys:
 
         self._features["gaussian"] = gaussian_v
 
+        # train_df = pd.DataFrame(train_vector.toarray())
+        # features = train_df.values.tolist()
+        #
+        # centers = kmeans_v.cluster_centers_.tolist()
+        # center_distances = []
+        #
+        # labels_list = kmeans_v.labels_.tolist()
+        #
+        # for i in range(len(labels_list)):
+        #     label = labels_list[i]
+        #     center_distances.append(distance.euclidean(features[i], centers[label]))
+        #
+        # self._features["distance"] = center_distances
+
         # Composing and predicting cluster
         dict = {"Brand": preference[0],
                 "Variety": preference[1],

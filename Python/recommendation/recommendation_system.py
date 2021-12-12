@@ -30,8 +30,12 @@ class RecSystem:
         gmm_rec = self._gmm.predict()
 
         intersection = np.intersect1d(k_means_rec.index, gmm_rec.index)
+        # self._features = self._features.sort_values(by=["distance"])
         if len(intersection) > 10:
             intersection = intersection[:10]
 
+        n = 0
         for i in intersection:
-            self._recommendations.append(k_means_rec[k_means_rec.index == i].values.tolist()[0])
+            if n < 10:
+                self._recommendations.append(k_means_rec[k_means_rec.index == i].sort_values(by=["distance"]).values.tolist()[0])
+                n += 1
